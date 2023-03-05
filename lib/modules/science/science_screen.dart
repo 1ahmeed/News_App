@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../layout/cubit/cubit.dart';
 import '../../layout/cubit/states.dart';
-import '../../shared/components/components.dart';
+import '../../shared/components/widgets/custom_condition_builder.dart';
 
 class ScienceScreen extends StatelessWidget {
   const ScienceScreen({super.key});
@@ -13,7 +13,7 @@ class ScienceScreen extends StatelessWidget {
       listener: (context, state) {},
       builder: (context, state) {
         var list=NewsCubit.get(context)?.science;
-        return buildConditionBuilderForArticles(list,context);
+        return CustomConditionBuilder(list);
       }, );
   }
 }

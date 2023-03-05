@@ -75,6 +75,10 @@ ThemeData darkTheme=ThemeData(
           fontSize: 18.0,
           fontWeight: FontWeight.w600,
 
-        )
-    )
+        ),
+      caption: TextStyle(
+        color: Colors.white,
+      ),
+    ),
+
 );

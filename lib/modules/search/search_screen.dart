@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app/layout/cubit/cubit.dart';
 import 'package:news_app/layout/cubit/states.dart';
-import 'package:news_app/shared/components/components.dart';
+import '../../shared/components/widgets/custom_condition_builder.dart';
+import '../../shared/components/widgets/custom_text_form_field.dart';
 
 
 class SearchScreen extends StatelessWidget {
@@ -21,7 +22,7 @@ class SearchScreen extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.all(20.0),
-                child: defaultTextField(
+                child: CustomTextFormField(
                     controller: searchController,
                     keyboard: TextInputType.text,
                     colorBorder: NewsCubit.get(context)!.isDark?Colors.black:Colors.white,
@@ -41,7 +42,7 @@ class SearchScreen extends StatelessWidget {
               ),
               Expanded(
                   child:
-                  buildConditionBuilderForArticles(list,context,isSearch:true))
+                  CustomConditionBuilder(list,isSearch:true))
 
             ],
           ),

@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app/layout/cubit/states.dart';
@@ -12,18 +10,13 @@ import 'package:news_app/shared/network/remote/dio_helper.dart';
 class NewsCubit extends Cubit<NewsStates> {
 
   NewsCubit() : super(AppInitialStates());
-
   static NewsCubit? get(context) => BlocProvider.of(context);
 
   int currentIndex = 0;
-
-
   List<Widget>? screens = [
    const BusinessScreen(),
     const SportsScreen(),
     const ScienceScreen(),
-
-
   ];
 
   void changeCurrentIndex(int index) {
@@ -53,7 +46,6 @@ class NewsCubit extends Cubit<NewsStates> {
         business = value.data["articles"];
         print(business[0]["title"]);
         emit(NewsGetBusinessSuccessStates());
-       //['articles'][0]['title']
     }).catchError((error) {
       print('error when bring data ${error.toString()}');
       emit(NewsGetBusinessErrorStates(error.toString()));
@@ -61,9 +53,7 @@ class NewsCubit extends Cubit<NewsStates> {
   }
 
   List<dynamic> sports = [];
-
   void getSports() {
-
     emit(NewsGetSportsLoadingStates());
 
     if(sports.isEmpty){
@@ -89,10 +79,8 @@ class NewsCubit extends Cubit<NewsStates> {
   }
 
   List<dynamic> science = [];
-
   void getScience() {
     emit(NewsGetScienceLoadingStates());
-
     if(science.isEmpty){
       DioHelper.getData(
         url: 'v2/top-headlines',
@@ -116,7 +104,6 @@ class NewsCubit extends Cubit<NewsStates> {
   }
 
   List<dynamic> search = [];
-
   void getSearch(String? value) {
     emit(NewsGetSearchLoadingStates());
     DioHelper.getData(
@@ -156,10 +143,6 @@ class NewsCubit extends Cubit<NewsStates> {
       emit(NewsChangeModeStates());
 
     });
-
-
   }
-
-
 
 }

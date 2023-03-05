@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app/layout/cubit/cubit.dart';
 import 'package:news_app/layout/cubit/states.dart';
 import 'package:news_app/modules/search/search_screen.dart';
-import 'package:news_app/shared/components/components.dart';
+import '../shared/components/widgets/custom_navigation_to.dart';
 
 class NewsLayout extends StatelessWidget {
   const NewsLayout({super.key});
@@ -20,7 +20,6 @@ class NewsLayout extends StatelessWidget {
           return Scaffold(
             // key: ,
             appBar: AppBar(
-              //backgroundColor: Colors.white,
               title: const Text("News"),
               actions: [
                 IconButton(

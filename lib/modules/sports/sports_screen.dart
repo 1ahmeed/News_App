@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../layout/cubit/cubit.dart';
 import '../../layout/cubit/states.dart';
-import '../../shared/components/components.dart';
+import '../../shared/components/widgets/custom_condition_builder.dart';
 
 class SportsScreen extends StatelessWidget {
   const SportsScreen({super.key});
@@ -15,7 +15,7 @@ class SportsScreen extends StatelessWidget {
       listener: (context, state) {},
       builder: (context, state) {
         var list=NewsCubit.get(context)?.sports;
-        return buildConditionBuilderForArticles(list,context);
+        return CustomConditionBuilder(list,);
       }, );
   }
 }
